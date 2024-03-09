@@ -1,0 +1,36 @@
+<div class="card">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="submit()"
+    class="flex flex-col gap-4"
+  >
+    <h1 class="text-2xl font-semibold text-center">Welcome Back 🥳</h1>
+    <div class="flex flex-col gap-1">
+      <label for="email" class="text-sm font-semibold">Email</label>
+      <input
+        type="email"
+        class="input"
+        [formControl]="loginForm.controls.email"
+        id="email"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="password" class="text-sm font-semibold">Password</label>
+      <input
+        type="password"
+        class="input"
+        [formControl]="loginForm.controls.password"
+        id="password"
+      />
+    </div>
+    <button class="btn">Login</button>
+    <h1>
+      Don't have an account?
+      <span
+        class="font-semibold text-blue-500 cursor-pointer"
+        [routerLink]="['/', 'register']"
+        >Register</span
+      >
+    </h1>
+  </form>
+</div>

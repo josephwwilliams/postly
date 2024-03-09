@@ -1,0 +1,25 @@
+<div class="flex flex-col gap-4 text-center card" *ngIf="post">
+  <h1
+    class="text-2xl font-bold cursor-pointer"
+    [routerLink]="['/', 'post', post._id]"
+  >
+    {{ post.title }}
+  </h1>
+  <h2 class="font-bold">
+    Author:
+    <span
+      class="cursor-pointer"
+      [routerLink]="['/', 'blog', post.createdBy.username]"
+      >{{ post.createdBy.username }}</span
+    >
+  </h2>
+  <h3 class="text-sm font-semibold">Created: {{ post.createdAt | date }}</h3>
+  <p class="font-light text-lg">
+    {{ post.content | slice : 0 : 300 }}...
+    <span
+      class="text-blue-400 cursor-pointer font-semibold"
+      [routerLink]="['/', 'post', post._id]"
+      >Read</span
+    >
+  </p>
+</div>

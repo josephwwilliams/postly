@@ -1,0 +1,28 @@
+<div class="card">
+  <form
+    [formGroup]="postForm"
+    (ngSubmit)="submit()"
+    class="flex flex-col gap-4"
+  >
+    <h1 class="font-semibold text-2xl text-center">Create A Post ✍</h1>
+    <div class="flex flex-col gap-1">
+      <label for="title" class="text-sm font-semibold">Title</label>
+      <input
+        type="text"
+        class="input font-semibold"
+        [formControl]="postForm.controls.title"
+        id="title"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="content" class="text-sm font-semibold">Content</label>
+      <textarea
+        type="text"
+        class="input w-96 h-96"
+        [formControl]="postForm.controls.content"
+        id="content"
+      ></textarea>
+    </div>
+    <button class="btn">Create</button>
+  </form>
+</div>

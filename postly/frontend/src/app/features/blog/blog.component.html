@@ -1,0 +1,57 @@
+<!-- <section class="flex justify-center py-8" *ngIf="blog">
+  <div class="flex flex-col w-full max-w-5xl gap-12 lg:flex-row">
+    <aside class="flex flex-col w-full gap-6 lg:w-1/3">
+      <h1 class="text-4xl font-bold lg:text-5xl">{{ blog.user.username }}</h1>
+      <h2 class="text-xl font-semibold lg:text-2xl">
+        Member Since: {{ blog.user.createdAt | date : "longDate" }}
+      </h2>
+      <p class="text-lg font-light lg:text-xl">
+        Total Posts: {{ blog.totalPosts }}
+      </p>
+    </aside>
+    <div class="flex flex-col w-full gap-10 lg:w-2/3">
+      <div *ngIf="blog.posts.length; else noPosts">
+        <app-post-preview
+          *ngFor="let post of blog.posts"
+          [post]="post"
+          class="flex flex-col gap-5"
+        ></app-post-preview>
+      </div>
+      <ng-template #noPosts>
+        <div class="card min-w-[20rem] sm:min-w-[40rem] px-6 py-4">
+          <h1 class="text-2xl font-bold text-center">No posts to show 😢</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section> -->
+
+<section class="flex justify-center py-8" *ngIf="blog">
+  <div class="flex flex-col w-full max-w-5xl gap-12">
+    <aside class="flex flex-col w-full gap-6">
+      <h1 class="text-4xl font-bold lg:text-5xl">{{ blog.user.username }}</h1>
+      <h2 class="text-xl font-semibold lg:text-2xl">
+        Member Since: {{ blog.user.createdAt | date : "longDate" }}
+      </h2>
+      <p class="text-lg font-light lg:text-xl">
+        Total Posts: {{ blog.totalPosts }}
+      </p>
+    </aside>
+    <div>
+      <div
+        *ngIf="blog.posts.length; else noPosts"
+        class="flex flex-col w-full gap-10"
+      >
+        <app-post-preview
+          *ngFor="let post of blog.posts"
+          [post]="post"
+        ></app-post-preview>
+      </div>
+      <ng-template #noPosts>
+        <div class="card min-w-[20rem] sm:min-w-[40rem] px-6 py-4">
+          <h1 class="text-2xl font-bold text-center">No posts to show 😢</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

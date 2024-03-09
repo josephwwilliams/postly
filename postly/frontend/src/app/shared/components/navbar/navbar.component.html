@@ -1,0 +1,51 @@
+<nav
+  class="top-0 left-0 flex items-center justify-center w-full px-4 py-6 text-white bg-blue-400 border-b shadow md:px-36 border-blue-900/20"
+>
+  <div class="flex items-center justify-between w-full mx-4">
+    <h1 class="text-3xl font-semibold">
+      <a class="cursor-pointer" routerLink="">Postly</a>
+    </h1>
+
+    <ul class="flex gap-7" *ngIf="user$ | async as user; else noUser">
+      <li>
+        <a
+          [routerLink]="['/', 'post', 'create']"
+          class="text-2xl font-thin cursor-pointer hover:underline"
+          >Post</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/', 'blog', user.username]"
+          class="text-2xl font-thin cursor-pointer hover:underline"
+          >My Blog</a
+        >
+      </li>
+      <li>
+        <a
+          (click)="logout()"
+          class="text-2xl font-thin cursor-pointer hover:underline"
+          >Logout</a
+        >
+      </li>
+    </ul>
+    <ng-template #noUser>
+      <ul class="flex gap-7">
+        <li>
+          <a
+            routerLink="login"
+            class="text-2xl font-thin cursor-pointer hover:underline"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="register"
+            class="text-2xl font-thin cursor-pointer hover:underline"
+            >Get Started</a
+          >
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</nav>
